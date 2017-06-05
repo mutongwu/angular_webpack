@@ -21,8 +21,8 @@ module.exports = function (_path) {
   var webpackConfig = {
     // entry points
     entry: {
-      app: _path + '/src/app/index.bootstrap.js',
-      vendor: _path + '/src/app/index.vendor.js',
+      app: _path + '/src/index.bootstrap.js',
+      vendor: _path + '/src/index.vendor.js',
     },
 
     // output system
@@ -37,7 +37,6 @@ module.exports = function (_path) {
     resolve: {
       extensions: ['.js', '.es6', '.jsx', '.styl', '.css'],
       alias: {
-        _appRoot: path.join(_path, 'src', 'app'),
         _images: path.join(_path, 'src', 'assets', 'images'),
         _stylesheets: path.join(_path, 'src', 'assets', 'styles'),
         _scripts: path.join(_path, 'src', 'assets', 'js')
@@ -82,7 +81,7 @@ module.exports = function (_path) {
         //   'css-loader?sourceMap',
         //   'postcss-loader'
         // ]
-        loader: extractCSS.extract([ 'css-loader' ])
+        loader:DEVELOPMENT ? ('style-loader!css-loader') :  extractCSS.extract([ 'css-loader' ])
       }, {
         test: /\.styl$/,
         loader: DEVELOPMENT ? ('style-loader!' + stylesLoader) : ExtractTextPlugin.extract({
@@ -134,7 +133,7 @@ module.exports = function (_path) {
         'NODE_ENV': JSON.stringify(NODE_ENV)
       }),
       // new webpack.NoEmitOnErrorsPlugin(),
-      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+      // new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       // new webpack.optimize.AggressiveMergingPlugin({
       //   moveToParents: true
       // }),
@@ -144,10 +143,10 @@ module.exports = function (_path) {
         // children: true,
         // minChunks: Infinity
       }),
-      new Manifest(path.join(_path + '/config', 'manifest.json'), {
-        rootAssetPath: rootAssetPath,
-        ignorePaths: ['.DS_Store']
-      }),
+      // new Manifest(path.join(_path + '/config', 'manifest.json'), {
+      //   rootAssetPath: rootAssetPath,
+      //   ignorePaths: ['.DS_Store']
+      // }),
       extractCSS,
       new ExtractTextPlugin({
         filename: 'assets/styles/css/[name]' + (NODE_ENV === 'development' ? '' : '.[chunkhash]') + '.css',

@@ -1,0 +1,27 @@
+<topnav></topnav>
+<div id="main-container">
+	<div class="main-container-inner" ng-class="isMenuCollapse ? 'menuCollapse': '' ">
+		
+		<leftmenu></leftmenu>
+
+		<div id="main-content" class="clearfix main-content">
+			<div  id="bread-box" class=" bread-box">
+				<ul class="breadcrumb">
+					<li>
+						<i class="glyphicon glyphicon-home"></i>
+						<a ui-sref="yj.dashboard">首页</a>
+					</li>
+					<li ng-repeat="item in nodeData track by $index" ng-class="$last ? 'active':''">
+				  		<a ng-click="changePage(item)" ng-if="!$last">{{item.displayName}}</a>
+				  		<span ng-if="$last">{{item.displayName}}</span>
+					</li>
+					<!-- <li class="active">{{nodeData.displayName}}</li> -->
+				</ul><!-- .breadcrumb -->
+			</div>
+
+			<div id="page-content" class=" page-content">
+			    <ui-view></ui-view>
+			</div>
+		</div>
+	</div>
+</div>

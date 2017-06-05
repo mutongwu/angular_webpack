@@ -12,6 +12,10 @@ function MainController($log) {
   $log.debug('Hello from main controller!');
 
 
+  this.options = {
+    minDate: new Date(),
+    showWeeks: true
+  }
 
 
 

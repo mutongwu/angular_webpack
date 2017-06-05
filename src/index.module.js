@@ -10,6 +10,10 @@ import coreModule from './core/core.module';
 import indexComponents from './index.components';
 import indexRoutes from './index.routes';
 import mainModule from './pages/main/main.module';
+import './pages/login/login';
+import './pages/dashboard/dashboard';
+import './pages/invite/invite';
+
 
 
 const App = angular.module(
@@ -23,7 +27,7 @@ const App = angular.module(
     "ngMessages", 
     "ngResource", 
     "oc.lazyLoad",
-
+    "ui.bootstrap",
     // core
     coreModule.name,
 
@@ -34,7 +38,7 @@ const App = angular.module(
     indexRoutes.name,
 
     // pages
-    mainModule.name
+    mainModule.name,
 
   ]
 );

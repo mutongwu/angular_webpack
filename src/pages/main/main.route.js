@@ -7,11 +7,11 @@ function routeConfig($stateProvider) {
   'ngInject';
 
   $stateProvider
-    .state('main', {
-      url: '/',
+    .state('ykzd', {
+      url: '',
+      abstract: true,
       templateUrl: mainTpl,
-      controller: mainController,
-      controllerAs: 'main'
+      controller: mainController
     });
 
 }

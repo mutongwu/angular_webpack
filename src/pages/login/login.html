@@ -1,0 +1,38 @@
+<div class="loginPage">
+	<div class="container">
+      <div class="row ">
+      	  <div class="col-xs-1 col-md-4 "></div>
+          <div class="col-xs-10 col-md-4 ">
+          		<div class="formBox">
+          			<div class="logoBox text-center"><img src="../../assets/images/logo.jpg" class="logo"/></div> 
+          			<form class="form-signin" name="loginForm" ng-submit="login()" >
+	          			<label class="sr-only"></label>
+				        <!--<h3 class="title text-center">登录管理系统</h3>-->
+				        <div class="form-group form-group-lg" >
+					        <div class="input-group">
+					        	<span class="input-group-addon">
+							      	<span class="glyphicon glyphicon-user"></span>
+							    </span>
+						        <input type="text"  ng-model="user.username" class="form-control" placeholder="用户名/邮箱/手机号" required autofocus  ng-maxlength="30"/>
+						    </div>
+				        </div>
+				        <div class="form-group form-group-lg" >
+					      <div class="input-group">
+					        <span class="input-group-addon">
+					        	<span class="glyphicon glyphicon-pencil"></span>
+					        </span>
+					        <input type="password"  ng-model="user.password" class="form-control" id="password" placeholder="登录密码" ng-maxlength="20" required/>
+					      </div>
+					    </div>
+					    <div class="form-group" ng-if="failMsg">
+					    	 <p class="alert alert-danger form-control-static">{{failMsg}}</p>
+					    </div>
+				        <button class="btn btn-success btn-lg  btn-block" type="submit"  ng-disabled="loginForm.$invalid">登录</button>
+				        
+			      </form>
+          		</div>
+          </div>
+          <div class="col-xs-1 col-md-4 "></div>
+       </div>
+    </div>
+</div>    

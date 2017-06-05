@@ -25,6 +25,9 @@ import "jquery";
 
 import "angular-resource";
 
-import '../../node_modules/bootstrap/dist/css/bootstrap.css';
+import "angular-ui-bootstrap";
+
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
+
 // local scripts
 //import "../assets/js/...";

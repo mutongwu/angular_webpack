@@ -1,0 +1,51 @@
+<div class="navbar navbar-default" id="navbar">
+  <div class="clearfix navbar-container" id="navbar-container">
+    <div class="navbar-header pull-left">
+      <a href="#" class="navbar-brand">
+        <small>
+          易康正道后台管理系统
+        </small>
+      </a><!-- /.brand -->
+    </div><!-- /.navbar-header -->
+
+    <div class="navbar-header pull-right" role="navigation">
+      <ul class="nav top-nav">
+        <li class="light-blue" uib-dropdown>
+          <a uib-dropdown-toggle  href="javascript:;" class="dropdown-toggle">
+            <span class="user-info">
+              <small>欢迎光临,</small>
+              {{userName}}
+            </span>
+
+            <i class="glyphicon glyphicon-triangle-bottom"></i>
+          </a>
+
+          <ul uib-dropdown-menu class="pull-right dropdown-menu dropdown-caret  user-menu dropdown-yellow">
+            <!--<li>
+              <a href="#">
+                <i class="glyphicon glyphicon-cog"></i>
+                设置
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                <i class="glyphicon glyphicon-user"></i>
+                个人资料
+              </a>
+            </li>
+
+            <li class="divider"></li>-->
+
+            <li>
+              <a ng-click="doLogout()">
+                <i class="glyphicon glyphicon-log-out"></i>
+                退出
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul><!-- /.ace-nav -->
+    </div><!-- /.navbar-header -->
+  </div><!-- /.container -->
+</div><!-- /#navbar -->

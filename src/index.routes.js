@@ -3,7 +3,6 @@
 
 import asyncTemplate from '!!file-loader?name=templates/[name].[ext]!./pages/async-page-example/async.html';
 
-
 function routeConfig($urlRouterProvider, $stateProvider, resolverProvider) {
   'ngInject';
 
@@ -19,7 +18,7 @@ function routeConfig($urlRouterProvider, $stateProvider, resolverProvider) {
         });
 
 
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/login');
 
 }
 

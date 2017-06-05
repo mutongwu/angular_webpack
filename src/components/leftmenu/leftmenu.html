@@ -1,0 +1,47 @@
+<aside id="sidebar" class="sidebar" ng-class="isMenuCollapse ? 'menu-min': '' "> 
+    <ul class="nav nav-list">
+<!--       <li  ui-sref-active="active">
+        <a ui-sref="yj.dashboard">
+          <span class="glyphicon glyphicon-home"></span>
+          <span class="menu-text"> 控制台 </span>
+        </a>
+      </li> -->
+    
+
+    
+      <li ng-repeat="item in menuData" ng-click="toggleMenu(item)"
+           ng-class="{
+            'open ':item._openSubmenu,
+            'active': item.id === activeItem.id || item.id === activeItem.parentId
+            }">
+        <a ng-click="changePage(item)" class="dropdown-toggle">
+          <span class="glyphicon glyphicon-{{item.icon}}"></span>
+          <span class="menu-text">{{item.displayName}}</span>
+    
+          <b class="glyphicon glyphicon-menu-down" ng-if="item.children.length > 0"></b>
+        </a>
+    
+        <ul class="submenu"  ng-if="item.children.length > 0">
+          <li ng-repeat="submenu in item.children"
+              ng-class="submenu.id === activeItem.id ? 'active': '' "
+              ng-click="toggleMenu(submenu,$event)">
+            <a ng-click="changePage(submenu)">
+              <!-- <span class="icon-double-angle-right"></span> -->
+              {{submenu.displayName}}
+              <span class="badge badge-success " ng-if="submenu.badge > 0">{{submenu.badge}}</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+<!--       <li>
+        <a ui-sref="yj.password" ui-sref-active="active">
+          <span class="glyphicon glyphicon-edit"></span>
+          <span class="menu-text"> 密码修改 </span>
+        </a>
+      </li> -->
+    </ul>
+  
+    <div class="sidebar-collapse" id="sidebar-collapse" ng-click="collapseMenu()">
+      <span class="glyphicon" ng-class="isMenuCollapse ? 'glyphicon-circle-arrow-right' : 'glyphicon-circle-arrow-left'"></span>
+    </div>
+</aside>
